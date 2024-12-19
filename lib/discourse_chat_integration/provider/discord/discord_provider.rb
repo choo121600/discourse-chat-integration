@@ -16,11 +16,11 @@ module DiscourseChatIntegration
         },
       ].freeze
 
-      def self.send_message(url, message)
-        http = FinalDestination::HTTP.new("discord.com", 443)
-        http.use_ssl = true
 
+      def self.send_message(url, message)
         uri = URI(url)
+        http = FinalDestination::HTTP.new(uri.host, uri.port)
+        http.use_ssl = (uri.scheme == 'https')
 
         req = Net::HTTP::Post.new(uri, "Content-Type" => "application/json")
         req.body = message.to_json
