@@ -10,7 +10,7 @@ module DiscourseChatIntegration
         { key: "name", regex: '^\S+' },
         {
           key: "webhook_url",
-          regex: '^(https:\/\/discord\.com\/api\/webhooks\/|http:\/\/kakaobot\.yeonguk\.com\/.*)',
+          regex: '^(https:\/\/discord\.com\/api\/webhooks\/|https:\/\/chukakao\.powerinmd\.com\/.* )',
           unique: true,
           hidden: true,
         },
